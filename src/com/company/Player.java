@@ -37,23 +37,40 @@ public static void createPlayer(ArrayList<Cards> creadCards){
         player[numberOfPlayers] = new Player(name);
         arrayListForPlayer.add(player[numberOfPlayers]);
         arrayListForSelectCard.add(new CreadCards().creadArrayForCards(creadCards));
+        numberOfPlayers++;
 
-        numberOfPlayers ++ ;
-        System.out.println("Enter next player? \n 0 - No \n 1 - Yes");
-        number = scannerForNumber.nextInt();
-        if (number == 1){
-            nextPlayer_YesOrNo = true;
-        } else if (number == 0){
-            nextPlayer_YesOrNo = false;
-        } else System.out.println("You enter wrong number!");
+if (arrayListForPlayer.size()<2) {
+    System.out.println("Enter name of  player 2");
+    name = scannerForName.nextLine();
+    player = new Player[numberOfPlayers + 1];
+    player[numberOfPlayers] = new Player(name);
+    arrayListForPlayer.add(player[numberOfPlayers]);
+    arrayListForSelectCard.add(new CreadCards().creadArrayForCards(creadCards));
+    numberOfPlayers++;
+    System.out.println("Enter next player? \n 0 - No \n 1 - Yes");
+    number = scannerForNumber.nextInt();
+    if (number == 1) {
+        nextPlayer_YesOrNo = true;
+    } else if (number == 0) {
+        nextPlayer_YesOrNo = false;
+    } else System.out.println("You enter wrong number!");
+}else {
+    System.out.println("Enter next player? \n 0 - No \n 1 - Yes");
+    number = scannerForNumber.nextInt();
+    if (number == 1) {
+        nextPlayer_YesOrNo = true;
+    } else if (number == 0) {
+        nextPlayer_YesOrNo = false;
+    } else System.out.println("You enter wrong number!");
+}
 
     }while (nextPlayer_YesOrNo);
 
     GameProcess gameProcess = new GameProcess();
     gameProcess.startGame(arrayListForPlayer,arrayListForSelectCard, numberOfPlayers);
 
-   // Player player1 = new Player(scanner.nextLine());
-    //Cards selectCardsPlayer1 = new CreadCards().creadArrayForCards(creadCards);
+
+   return ;
 
 }
 

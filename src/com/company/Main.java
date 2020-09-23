@@ -10,8 +10,8 @@ public class Main {
 
     public static void main(String[] args) {
         ArrayList<Cards> creadCards = new CreadCards().creadCards();
-Player player = new Player();
-player.createPlayer(creadCards);
 
+        Player player = new Player();
+        player.createPlayer(creadCards);
     }
 }
